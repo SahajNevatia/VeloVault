@@ -56,8 +56,9 @@ const createVehicle = async (req, res) => {
  */
 const getAllVehicles = async (req, res) => {
   try {
-    const page = parseInt(req.query.page) || 1;
-    const limit = parseInt(req.query.limit) || 10;
+    // Sanitize pagination parameters defensively
+    const page = Math.max(1, parseInt(req.query.page, 10) || 1);
+    const limit = Math.min(100, Math.max(1, parseInt(req.query.limit, 10) || 10));
 
     const result = await vehicleService.getAllVehicles(page, limit);
     res.status(200).json({
