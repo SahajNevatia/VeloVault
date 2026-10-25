@@ -2,8 +2,7 @@ import React, { useState } from 'react';
 import { Search, SlidersHorizontal, X } from 'lucide-react';
 
 /**
- * Search and filter bar component styled with dark luxury & purple accents.
- * Supports filtering by make, model, category, and price range.
+ * Search and filter bar supporting Light Mode (White/Blue) & Dark Mode (Black/Purple).
  */
 export default function SearchBar({ onSearch, onReset }) {
   const [filters, setFilters] = useState({
@@ -40,12 +39,12 @@ export default function SearchBar({ onSearch, onReset }) {
   };
 
   return (
-    <div className="bg-[#131324] rounded-xl shadow-xl shadow-black/40 border border-purple-900/40 p-4 mb-8">
+    <div className="bg-white dark:bg-[#131324] rounded-xl shadow-sm dark:shadow-xl dark:shadow-black/40 border border-gray-200 dark:border-purple-900/40 p-4 mb-8 transition-colors duration-200">
       <form onSubmit={handleSearch}>
         {/* Main Search Bar */}
         <div className="flex items-center space-x-3">
           <div className="relative flex-1">
-            <Search className="absolute left-3.5 top-1/2 transform -translate-y-1/2 h-5 w-5 text-purple-400" />
+            <Search className="absolute left-3.5 top-1/2 transform -translate-y-1/2 h-5 w-5 text-gray-400 dark:text-purple-400" />
             <input
               type="text"
               name="make"
@@ -62,7 +61,7 @@ export default function SearchBar({ onSearch, onReset }) {
             type="button"
             onClick={() => setShowAdvanced(!showAdvanced)}
             className={`btn-secondary flex items-center space-x-1.5 ${
-              showAdvanced ? 'bg-purple-950 text-purple-300 border-purple-500/60' : ''
+              showAdvanced ? 'bg-primary-50 text-primary-700 border-primary-200 dark:bg-purple-950 dark:text-purple-300 dark:border-purple-500/60' : ''
             }`}
           >
             <SlidersHorizontal className="h-4 w-4" />
@@ -72,7 +71,7 @@ export default function SearchBar({ onSearch, onReset }) {
             <button
               type="button"
               onClick={handleReset}
-              className="flex items-center space-x-1 text-slate-400 hover:text-red-400 px-2 py-1 rounded transition-colors"
+              className="flex items-center space-x-1 text-gray-500 hover:text-red-600 dark:text-slate-400 dark:hover:text-red-400 px-2 py-1 rounded transition-colors"
             >
               <X className="h-4 w-4" />
               <span className="text-sm font-medium">Clear</span>
@@ -82,9 +81,9 @@ export default function SearchBar({ onSearch, onReset }) {
 
         {/* Advanced Filters */}
         {showAdvanced && (
-          <div className="mt-4 pt-4 border-t border-purple-950/60 grid grid-cols-1 md:grid-cols-4 gap-4">
+          <div className="mt-4 pt-4 border-t border-gray-100 dark:border-purple-950/60 grid grid-cols-1 md:grid-cols-4 gap-4">
             <div>
-              <label className="block text-xs font-semibold text-slate-300 uppercase tracking-wider mb-1.5">
+              <label className="block text-xs font-semibold text-gray-700 dark:text-slate-300 uppercase tracking-wider mb-1.5">
                 Model Name
               </label>
               <input
@@ -97,7 +96,7 @@ export default function SearchBar({ onSearch, onReset }) {
               />
             </div>
             <div>
-              <label className="block text-xs font-semibold text-slate-300 uppercase tracking-wider mb-1.5">
+              <label className="block text-xs font-semibold text-gray-700 dark:text-slate-300 uppercase tracking-wider mb-1.5">
                 Vehicle Category
               </label>
               <select
@@ -115,7 +114,7 @@ export default function SearchBar({ onSearch, onReset }) {
               </select>
             </div>
             <div>
-              <label className="block text-xs font-semibold text-slate-300 uppercase tracking-wider mb-1.5">
+              <label className="block text-xs font-semibold text-gray-700 dark:text-slate-300 uppercase tracking-wider mb-1.5">
                 Min Price (USD)
               </label>
               <input
@@ -128,7 +127,7 @@ export default function SearchBar({ onSearch, onReset }) {
               />
             </div>
             <div>
-              <label className="block text-xs font-semibold text-slate-300 uppercase tracking-wider mb-1.5">
+              <label className="block text-xs font-semibold text-gray-700 dark:text-slate-300 uppercase tracking-wider mb-1.5">
                 Max Price (USD)
               </label>
               <input
