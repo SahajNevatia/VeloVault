@@ -99,6 +99,27 @@ Comprehensive customer search tools in action, demonstrating real-time queries f
 
 ---
 
+### 11. Customer Registration Portal
+Interactive sign-up interface allowing new buyers to create an authenticated customer account with validation rules for username, email format, and password confirmation.
+
+![Customer Registration](docs/screenshots/11-customer-registration.png)
+
+---
+
+### 12. Vehicle Inventory Pre-Purchase (5 Units in Stock)
+Customer logged in as `sahaj` viewing the live vehicle catalog. The **2023 BMW M4 Competition** shows **5 units left** in stock prior to purchase.
+
+![Vehicle Inventory Before Purchase](docs/screenshots/12-inventory-before-purchase.png)
+
+---
+
+### 13. Instant Vehicle Purchase & Live Stock Decrement (4 Units Remaining)
+Demonstrating the live purchasing workflow: clicking the **"Purchase"** button executes an authenticated `POST /api/vehicles/:id/purchase` request, displays a real-time toast notification (`Vehicle purchased successfully!`), and immediately decrements the BMW M4 Competition stock from **5 units down to 4 units left**.
+
+![Vehicle Purchased Successfully - Stock Decreased to 4](docs/screenshots/13-purchase-success-stock-decremented.png)
+
+---
+
 ## ✨ Features
 
 ### User Management
