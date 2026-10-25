@@ -94,6 +94,7 @@ const seedData = async () => {
         price: 44795,
         quantity: 4,
         description: 'Track-ready hot hatch with 315-hp turbocharged 2.0-liter VTEC engine.',
+        imageUrl: '/images/cars/honda.png',
       },
       {
         make: 'Audi',
@@ -103,6 +104,7 @@ const seedData = async () => {
         price: 125800,
         quantity: 1,
         description: 'Twin-turbo V8 superwagon producing 591 hp with legendary Quattro AWD.',
+        imageUrl: '/images/cars/audi.png',
       },
       {
         make: 'Mazda',
@@ -112,6 +114,7 @@ const seedData = async () => {
         price: 28985,
         quantity: 0,
         description: 'Pure roadster thrills with near 50/50 weight distribution (Currently out of stock).',
+        imageUrl: '/images/cars/mazda.png',
       },
     ];
 
