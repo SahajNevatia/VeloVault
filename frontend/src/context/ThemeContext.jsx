@@ -3,39 +3,32 @@ import React, { createContext, useContext, useState, useEffect } from 'react';
 const ThemeContext = createContext(null);
 
 /**
- * Theme context provider supporting seamless toggling between
- * Dark Mode (Obsidian Black & Neon Purple) and Light Mode (Clean White & Classic Blue).
+ * Theme context provider managing Light mode and Black & Purple Dark mode.
+ * Defaults to 'light' mode per user specification.
  * Persists user preference in localStorage.
  */
 export function ThemeProvider({ children }) {
   const [theme, setTheme] = useState(() => {
-    const saved = localStorage.getItem('velovault_theme');
-    if (saved) return saved;
-    // Default to light mode (Clean White & Classic Blue)
-    return 'light';
+    // Default to 'light' mode
+    return localStorage.getItem('velovault_theme') || 'light';
   });
 
   useEffect(() => {
     const root = document.documentElement;
-    const body = document.body;
     if (theme === 'dark') {
       root.classList.add('dark');
-      if (body) body.classList.add('dark');
     } else {
       root.classList.remove('dark');
-      if (body) body.classList.remove('dark');
     }
     localStorage.setItem('velovault_theme', theme);
   }, [theme]);
 
   const toggleTheme = () => {
-    setTheme((prev) => (prev === 'dark' ? 'light' : 'dark'));
+    setTheme((prev) => (prev === 'light' ? 'dark' : 'light'));
   };
 
-  const isDark = theme === 'dark';
-
   return (
-    <ThemeContext.Provider value={{ theme, toggleTheme, isDark }}>
+    <ThemeContext.Provider value={{ theme, toggleTheme, isDark: theme === 'dark' }}>
       {children}
     </ThemeContext.Provider>
   );

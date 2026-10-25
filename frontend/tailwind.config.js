@@ -1,16 +1,16 @@
 /** @type {import('tailwindcss').Config} */
 export default {
-  content: ['./index.html', './src/**/*.{js,ts,jsx,tsx}'],
   darkMode: 'class',
+  content: ['./index.html', './src/**/*.{js,ts,jsx,tsx}'],
   theme: {
     extend: {
       colors: {
         dark: {
-          bg: '#0a0a12',
-          surface: '#121220',
-          card: '#131324',
-          border: '#2e1d4d',
-          hover: '#1e1e36',
+          bg: '#0a0714',
+          card: '#120d22',
+          border: '#2a1a4a',
+          hover: '#1b1333',
+          input: '#160f2b',
         },
         primary: {
           50: '#eff6ff',
@@ -25,7 +25,7 @@ export default {
           900: '#1e3a8a',
           950: '#172554',
         },
-        purple: {
+        accent: {
           50: '#faf5ff',
           100: '#f3e8ff',
           200: '#e9d5ff',
@@ -41,6 +41,10 @@ export default {
       },
       fontFamily: {
         sans: ['Inter', 'system-ui', 'sans-serif'],
+      },
+      boxShadow: {
+        'purple-glow': '0 0 25px -5px rgba(168, 85, 247, 0.3)',
+        'purple-card': '0 4px 20px -2px rgba(147, 51, 234, 0.15)',
       },
     },
   },
