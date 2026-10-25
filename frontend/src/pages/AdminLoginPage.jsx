@@ -1,8 +1,7 @@
 import React, { useState } from 'react';
 import { Link, useNavigate } from 'react-router-dom';
 import { useAuth } from '../context/AuthContext';
-import { useTheme } from '../context/ThemeContext';
-import { ShieldCheck, Mail, Lock, Loader2, ArrowLeft, KeyRound, Sparkles, Sun, Moon } from 'lucide-react';
+import { ShieldCheck, Mail, Lock, Loader2, ArrowLeft, KeyRound } from 'lucide-react';
 
 /**
  * Dedicated Admin Login page.
@@ -14,7 +13,6 @@ export default function AdminLoginPage() {
   const [password, setPassword] = useState('');
   const [isLoading, setIsLoading] = useState(false);
   const { login } = useAuth();
-  const { isDark, toggleTheme } = useTheme();
   const navigate = useNavigate();
 
   const handleSubmit = async (e) => {
@@ -25,11 +23,6 @@ export default function AdminLoginPage() {
     if (result.success) {
       navigate('/admin');
     }
-  };
-
-  const handleFillDemoAdmin = () => {
-    setEmail('admin@velovault.com');
-    setPassword('admin123');
   };
 
   return (
@@ -65,27 +58,7 @@ export default function AdminLoginPage() {
       </div>
 
       {/* Right side - Admin Form */}
-      <div className="w-full lg:w-1/2 flex items-center justify-center p-8 bg-slate-950 relative">
-        {/* Theme Toggle */}
-        <div className="absolute top-6 right-6">
-          <button
-            onClick={toggleTheme}
-            title={isDark ? 'Switch to Light Mode' : 'Switch to Black & Purple Dark Mode'}
-            className="p-2 rounded-lg bg-slate-900 hover:bg-slate-800 text-purple-300 border border-slate-700 transition-colors flex items-center space-x-1.5 text-xs font-medium"
-          >
-            {isDark ? (
-              <>
-                <Sun className="h-4 w-4 text-amber-300" />
-                <span>Light</span>
-              </>
-            ) : (
-              <>
-                <Moon className="h-4 w-4 text-purple-400" />
-                <span>Dark</span>
-              </>
-            )}
-          </button>
-        </div>
+      <div className="w-full lg:w-1/2 flex items-center justify-center p-8 bg-slate-950">
         <div className="w-full max-w-md">
           {/* Back to Customer Login */}
           <div className="mb-6">
@@ -99,10 +72,6 @@ export default function AdminLoginPage() {
           </div>
 
           <div className="mb-8">
-            <div className="inline-flex items-center space-x-2 p-2 px-3 rounded-lg bg-purple-950/60 border border-purple-800/60 text-purple-300 text-xs font-medium mb-3">
-              <ShieldCheck className="h-4 w-4 text-purple-400" />
-              <span>Administrator Authentication Required</span>
-            </div>
             <h2 className="text-3xl font-extrabold text-white">Staff Sign In</h2>
             <p className="text-slate-400 mt-2 text-sm">
               Enter your administrative credentials to access the control panel
@@ -121,7 +90,7 @@ export default function AdminLoginPage() {
                   value={email}
                   onChange={(e) => setEmail(e.target.value)}
                   required
-                  placeholder="admin@velovault.com"
+                  placeholder="admin@example.com"
                   className="w-full pl-11 pr-4 py-2.5 bg-slate-900 border border-slate-700 rounded-lg text-white placeholder-slate-500 focus:outline-none focus:ring-2 focus:ring-purple-500 focus:border-purple-500 transition-all text-sm"
                 />
               </div>
@@ -156,18 +125,6 @@ export default function AdminLoginPage() {
               )}
             </button>
           </form>
-
-          {/* Quick Demo Fill Pill */}
-          <div className="mt-6 pt-6 border-t border-slate-800">
-            <button
-              type="button"
-              onClick={handleFillDemoAdmin}
-              className="w-full flex items-center justify-center space-x-2 py-2 px-3 bg-slate-900 hover:bg-slate-800 border border-purple-500/30 rounded-lg text-xs font-medium text-purple-300 transition-colors"
-            >
-              <Sparkles className="h-3.5 w-3.5 text-purple-400" />
-              <span>Fill Demo Admin Credentials (admin@velovault.com)</span>
-            </button>
-          </div>
         </div>
       </div>
     </div>
