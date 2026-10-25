@@ -1,5 +1,9 @@
 # VeloVault 🚗 — Premium Car Dealership Inventory System
 
+[![Live Demo on Vercel](https://img.shields.io/badge/Live_Demo-Vercel-black?style=for-the-badge&logo=vercel)](https://velo-vault-azure.vercel.app/login)
+[![API on Render](https://img.shields.io/badge/API-Render-46E3B7?style=for-the-badge&logo=render&logoColor=white)](https://velovault.onrender.com)
+[![Database MongoDB Atlas](https://img.shields.io/badge/MongoDB-Atlas-47A248?style=for-the-badge&logo=mongodb&logoColor=white)](https://cloud.mongodb.com)
+
 ![VeloVault](https://img.shields.io/badge/VeloVault-Car%20Dealership-blue?style=for-the-badge)
 ![Node.js](https://img.shields.io/badge/Node.js-v18+-green?style=flat-square)
 ![MongoDB](https://img.shields.io/badge/MongoDB-v6+-green?style=flat-square)
@@ -8,10 +12,14 @@
 
 A full-stack **Car Dealership Inventory Management System** built with **Node.js/Express**, **MongoDB Atlas**, and **React/Tailwind CSS**. Developed using **Test-Driven Development (TDD)** practices with comprehensive test coverage.
 
-> **🌐 Live Deployment Links:**
-> - **Frontend (Vercel):** [https://velo-vault-azure.vercel.app](https://velo-vault-azure.vercel.app)
-> - **Backend API (Render):** [https://velovault.onrender.com](https://velovault.onrender.com)
-> - **Database:** MongoDB Atlas Cloud Cluster
+> ### 🚀 Live Application
+> - 🖥️ **Live Web Application (Vercel):** [https://velo-vault-azure.vercel.app/login](https://velo-vault-azure.vercel.app/login)
+> - ⚡ **Backend API Server (Render):** [https://velovault.onrender.com](https://velovault.onrender.com)
+> - 🍃 **Cloud Database:** MongoDB Atlas Cluster
+>
+> **Demo Access Credentials:**
+> - **Customer:** `customer@velovault.com` / `password123`
+> - **Admin:** `admin@velovault.com` / `admin123` (access via `/admin-login`)
 
 ## 📋 Table of Contents
 
@@ -385,6 +393,21 @@ AI significantly accelerated my development workflow, especially for:
 - Ensuring consistent error handling patterns across the codebase
 
 However, I found it essential to review and understand every piece of generated code. The AI occasionally suggested patterns that didn't perfectly fit my project's architecture, requiring manual adjustments. Overall, AI served as a knowledgeable pair programmer that helped me move faster while maintaining quality.
+
+---
+
+## 🌐 Live Deployed Application
+
+The complete full-stack VeloVault system is deployed and fully accessible:
+
+- **Frontend SPA (Vercel):** [https://velo-vault-azure.vercel.app/login](https://velo-vault-azure.vercel.app/login)
+- **Backend API (Render):** [https://velovault.onrender.com](https://velovault.onrender.com)
+- **Database:** MongoDB Atlas (AWS Cloud Cluster)
+
+### Testing the Live Application:
+1. Open the [Vercel Deployment](https://velo-vault-azure.vercel.app/login).
+2. Sign in as **Customer** (`customer@velovault.com` / `password123`) to browse catalog, use advanced filters, and purchase vehicles.
+3. Switch to **Admin Portal** (`https://velo-vault-azure.vercel.app/admin-login`) and sign in as **Admin** (`admin@velovault.com` / `admin123`) to manage inventory, edit pricing, delete records, and restock units.
 
 ---
 
