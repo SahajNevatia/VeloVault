@@ -4,7 +4,9 @@ import axios from 'axios';
  * Axios instance configured with base URL and interceptors.
  * Automatically attaches JWT token to requests.
  */
-const API_BASE_URL = import.meta.env.VITE_API_URL || '/api';
+const API_BASE_URL =
+  import.meta.env.VITE_API_URL ||
+  (import.meta.env.DEV ? '/api' : 'https://velovault.onrender.com/api');
 
 const api = axios.create({
   baseURL: API_BASE_URL,
