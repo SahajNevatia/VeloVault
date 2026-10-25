@@ -6,8 +6,20 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
     <title>VeloVault - Premium Car Dealership</title>
+    <script>
+      (function() {
+        try {
+          const theme = localStorage.getItem('velovault_theme');
+          if (theme === 'dark') {
+            document.documentElement.classList.add('dark');
+          } else {
+            document.documentElement.classList.remove('dark');
+          }
+        } catch (e) {}
+      })();
+    </script>
   </head>
-  <body class="bg-[#0a0a12] text-slate-100">
+  <body class="bg-gray-50 text-gray-900 dark:bg-[#0a0a12] dark:text-slate-100 transition-colors duration-200">
     <div id="root"></div>
     <script type="module" src="/src/main.jsx"></script>
   </body>
