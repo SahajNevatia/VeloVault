@@ -6,10 +6,16 @@
 ![React](https://img.shields.io/badge/React-v18-blue?style=flat-square)
 ![TDD](https://img.shields.io/badge/TDD-Jest%20%7C%20Vitest-red?style=flat-square)
 
-A full-stack **Car Dealership Inventory Management System** built with **Node.js/Express**, **MongoDB**, and **React/Tailwind CSS**. Developed using **Test-Driven Development (TDD)** practices with comprehensive test coverage.
+A full-stack **Car Dealership Inventory Management System** built with **Node.js/Express**, **MongoDB Atlas**, and **React/Tailwind CSS**. Developed using **Test-Driven Development (TDD)** practices with comprehensive test coverage.
+
+> **🌐 Live Deployment Links:**
+> - **Frontend (Vercel):** [https://velo-vault-azure.vercel.app](https://velo-vault-azure.vercel.app)
+> - **Backend API (Render):** [https://velovault.onrender.com](https://velovault.onrender.com)
+> - **Database:** MongoDB Atlas Cloud Cluster
 
 ## 📋 Table of Contents
 
+- [Live Application & Screenshots](#-application-screenshots)
 - [Features](#features)
 - [Tech Stack](#tech-stack)
 - [Project Structure](#project-structure)
@@ -18,6 +24,43 @@ A full-stack **Car Dealership Inventory Management System** built with **Node.js
 - [API Documentation](#api-documentation)
 - [Testing](#testing)
 - [My AI Usage](#my-ai-usage)
+
+---
+
+## 📸 Application Screenshots
+
+### 1. Customer Login Portal
+A clean, streamlined authentication gateway designed for dealership customers. Features secure email and password validation, one-click portal switching to the staff area, and persistent session management.
+
+![Customer Login](docs/screenshots/01-customer-login.png)
+
+---
+
+### 2. Dealership Admin Staff Portal
+Dedicated, dark-themed administrative authentication environment built specifically for dealership managers, fleet supervisors, and inventory controllers with strict role-based access enforcement.
+
+![Dealership Admin Staff Portal](docs/screenshots/02-admin-login.png)
+
+---
+
+### 3. Vehicle Inventory Dashboard & Fleet Catalog
+The core customer experience showcase featuring live fleet inventory cards, real-time stock availability, category tags (Coupe, Sedan, SUV, Truck, Hatchback, Convertible, Wagon), interactive search and multi-attribute filters, and instant purchase triggers with out-of-stock disabling.
+
+![Vehicle Inventory Dashboard](docs/screenshots/03-vehicle-dashboard.png)
+
+---
+
+### 4. Admin Fleet Management Panel
+Full-featured control center for inventory administrators. Displays tabular fleet metrics, stock levels with alert color-coding (in-stock, low-stock, out-of-stock), inline quick-restocking, edit triggers, and vehicle deletion safeguards.
+
+![Admin Fleet Management Panel](docs/screenshots/04-admin-inventory-table.png)
+
+---
+
+### 5. Vehicle Creation & Specification Modal
+Interactive modal interface allowing dealership managers to add new acquisitions or modify existing vehicle data including make, model, model year, vehicle category, price in USD, stock volume, and image assets.
+
+![Vehicle Creation & Specification Modal](docs/screenshots/05-edit-vehicle-modal.png)
 
 ---
 
