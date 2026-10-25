@@ -11,8 +11,8 @@ export function ThemeProvider({ children }) {
   const [theme, setTheme] = useState(() => {
     const saved = localStorage.getItem('velovault_theme');
     if (saved) return saved;
-    // Default to dark mode as requested by user
-    return 'dark';
+    // Default to light mode (Clean White & Classic Blue)
+    return 'light';
   });
 
   useEffect(() => {
