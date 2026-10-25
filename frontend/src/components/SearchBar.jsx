@@ -2,7 +2,7 @@ import React, { useState } from 'react';
 import { Search, SlidersHorizontal, X } from 'lucide-react';
 
 /**
- * Search and filter bar component for the vehicle dashboard.
+ * Search and filter bar component styled with dark luxury & purple accents.
  * Supports filtering by make, model, category, and price range.
  */
 export default function SearchBar({ onSearch, onReset }) {
@@ -27,7 +27,6 @@ export default function SearchBar({ onSearch, onReset }) {
 
   const handleSearch = (e) => {
     e.preventDefault();
-    // Remove empty filters before searching
     const activeFilters = {};
     Object.entries(filters).forEach(([key, value]) => {
       if (value !== '') activeFilters[key] = value;
@@ -41,19 +40,19 @@ export default function SearchBar({ onSearch, onReset }) {
   };
 
   return (
-    <div className="bg-white rounded-xl shadow-sm border border-gray-100 p-4 mb-6">
+    <div className="bg-[#131324] rounded-xl shadow-xl shadow-black/40 border border-purple-900/40 p-4 mb-8">
       <form onSubmit={handleSearch}>
         {/* Main Search Bar */}
         <div className="flex items-center space-x-3">
           <div className="relative flex-1">
-            <Search className="absolute left-3 top-1/2 transform -translate-y-1/2 h-5 w-5 text-gray-400" />
+            <Search className="absolute left-3.5 top-1/2 transform -translate-y-1/2 h-5 w-5 text-purple-400" />
             <input
               type="text"
               name="make"
-              placeholder="Search by make (e.g., Toyota, Honda)..."
+              placeholder="Search by make (e.g., Porsche, Tesla, BMW, Ford)..."
               value={filters.make}
               onChange={handleChange}
-              className="input-field pl-10"
+              className="input-field pl-11"
             />
           </div>
           <button type="submit" className="btn-primary">
@@ -62,8 +61,8 @@ export default function SearchBar({ onSearch, onReset }) {
           <button
             type="button"
             onClick={() => setShowAdvanced(!showAdvanced)}
-            className={`btn-secondary flex items-center space-x-1 ${
-              showAdvanced ? 'bg-primary-50 text-primary-700' : ''
+            className={`btn-secondary flex items-center space-x-1.5 ${
+              showAdvanced ? 'bg-purple-950 text-purple-300 border-purple-500/60' : ''
             }`}
           >
             <SlidersHorizontal className="h-4 w-4" />
@@ -73,39 +72,39 @@ export default function SearchBar({ onSearch, onReset }) {
             <button
               type="button"
               onClick={handleReset}
-              className="flex items-center space-x-1 text-gray-500 hover:text-red-500 transition-colors"
+              className="flex items-center space-x-1 text-slate-400 hover:text-red-400 px-2 py-1 rounded transition-colors"
             >
               <X className="h-4 w-4" />
-              <span className="text-sm">Clear</span>
+              <span className="text-sm font-medium">Clear</span>
             </button>
           )}
         </div>
 
         {/* Advanced Filters */}
         {showAdvanced && (
-          <div className="mt-4 pt-4 border-t border-gray-100 grid grid-cols-1 md:grid-cols-4 gap-4">
+          <div className="mt-4 pt-4 border-t border-purple-950/60 grid grid-cols-1 md:grid-cols-4 gap-4">
             <div>
-              <label className="block text-sm font-medium text-gray-700 mb-1">
-                Model
+              <label className="block text-xs font-semibold text-slate-300 uppercase tracking-wider mb-1.5">
+                Model Name
               </label>
               <input
                 type="text"
                 name="model"
-                placeholder="e.g., Camry"
+                placeholder="e.g., 911, Model 3"
                 value={filters.model}
                 onChange={handleChange}
-                className="input-field"
+                className="input-field text-sm"
               />
             </div>
             <div>
-              <label className="block text-sm font-medium text-gray-700 mb-1">
-                Category
+              <label className="block text-xs font-semibold text-slate-300 uppercase tracking-wider mb-1.5">
+                Vehicle Category
               </label>
               <select
                 name="category"
                 value={filters.category}
                 onChange={handleChange}
-                className="input-field"
+                className="input-field text-sm"
               >
                 <option value="">All Categories</option>
                 {categories.map((cat) => (
@@ -116,8 +115,8 @@ export default function SearchBar({ onSearch, onReset }) {
               </select>
             </div>
             <div>
-              <label className="block text-sm font-medium text-gray-700 mb-1">
-                Min Price
+              <label className="block text-xs font-semibold text-slate-300 uppercase tracking-wider mb-1.5">
+                Min Price (USD)
               </label>
               <input
                 type="number"
@@ -125,20 +124,20 @@ export default function SearchBar({ onSearch, onReset }) {
                 placeholder="$0"
                 value={filters.minPrice}
                 onChange={handleChange}
-                className="input-field"
+                className="input-field text-sm"
               />
             </div>
             <div>
-              <label className="block text-sm font-medium text-gray-700 mb-1">
-                Max Price
+              <label className="block text-xs font-semibold text-slate-300 uppercase tracking-wider mb-1.5">
+                Max Price (USD)
               </label>
               <input
                 type="number"
                 name="maxPrice"
-                placeholder="$100,000"
+                placeholder="$200,000"
                 value={filters.maxPrice}
                 onChange={handleChange}
-                className="input-field"
+                className="input-field text-sm"
               />
             </div>
           </div>

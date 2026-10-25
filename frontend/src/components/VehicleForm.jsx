@@ -1,9 +1,9 @@
 import React, { useState, useEffect } from 'react';
-import { X } from 'lucide-react';
+import { X, Car } from 'lucide-react';
 
 /**
- * Vehicle form component for adding and editing vehicles.
- * Used in the admin panel for inventory management.
+ * Vehicle form component styled with dark luxury & purple accents.
+ * Used in the admin panel for adding and modifying vehicle inventory.
  */
 export default function VehicleForm({ vehicle, onSubmit, onCancel }) {
   const [formData, setFormData] = useState({
@@ -52,16 +52,21 @@ export default function VehicleForm({ vehicle, onSubmit, onCancel }) {
   };
 
   return (
-    <div className="fixed inset-0 bg-black bg-opacity-50 flex items-center justify-center z-50 p-4">
-      <div className="bg-white rounded-xl shadow-xl max-w-lg w-full max-h-[90vh] overflow-y-auto">
+    <div className="fixed inset-0 bg-black/80 backdrop-blur-sm flex items-center justify-center z-50 p-4">
+      <div className="bg-[#141424] border border-purple-800/60 rounded-xl shadow-2xl shadow-black/80 max-w-lg w-full max-h-[90vh] overflow-y-auto text-white">
         {/* Header */}
-        <div className="flex items-center justify-between p-6 border-b border-gray-100">
-          <h2 className="text-xl font-bold text-gray-900">
-            {vehicle ? 'Edit Vehicle' : 'Add New Vehicle'}
-          </h2>
+        <div className="flex items-center justify-between p-6 border-b border-purple-900/40">
+          <div className="flex items-center space-x-2.5">
+            <div className="p-2 rounded-lg bg-purple-600/20 border border-purple-500/30">
+              <Car className="h-5 w-5 text-purple-400" />
+            </div>
+            <h2 className="text-xl font-bold text-white">
+              {vehicle ? 'Edit Vehicle Details' : 'Add Vehicle to Fleet'}
+            </h2>
+          </div>
           <button
             onClick={onCancel}
-            className="text-gray-400 hover:text-gray-600 transition-colors"
+            className="text-slate-400 hover:text-white transition-colors p-1 rounded-lg hover:bg-slate-800"
           >
             <X className="h-5 w-5" />
           </button>
@@ -71,7 +76,7 @@ export default function VehicleForm({ vehicle, onSubmit, onCancel }) {
         <form onSubmit={handleSubmit} className="p-6 space-y-4">
           <div className="grid grid-cols-2 gap-4">
             <div>
-              <label className="block text-sm font-medium text-gray-700 mb-1">
+              <label className="block text-xs font-semibold text-slate-300 uppercase tracking-wider mb-1.5">
                 Make *
               </label>
               <input
@@ -80,12 +85,12 @@ export default function VehicleForm({ vehicle, onSubmit, onCancel }) {
                 value={formData.make}
                 onChange={handleChange}
                 required
-                placeholder="e.g., Toyota"
-                className="input-field"
+                placeholder="e.g., Porsche"
+                className="input-field text-sm"
               />
             </div>
             <div>
-              <label className="block text-sm font-medium text-gray-700 mb-1">
+              <label className="block text-xs font-semibold text-slate-300 uppercase tracking-wider mb-1.5">
                 Model *
               </label>
               <input
@@ -94,15 +99,15 @@ export default function VehicleForm({ vehicle, onSubmit, onCancel }) {
                 value={formData.model}
                 onChange={handleChange}
                 required
-                placeholder="e.g., Camry"
-                className="input-field"
+                placeholder="e.g., 911 Carrera"
+                className="input-field text-sm"
               />
             </div>
           </div>
 
           <div className="grid grid-cols-2 gap-4">
             <div>
-              <label className="block text-sm font-medium text-gray-700 mb-1">
+              <label className="block text-xs font-semibold text-slate-300 uppercase tracking-wider mb-1.5">
                 Year *
               </label>
               <input
@@ -113,11 +118,11 @@ export default function VehicleForm({ vehicle, onSubmit, onCancel }) {
                 required
                 min="1900"
                 max="2030"
-                className="input-field"
+                className="input-field text-sm"
               />
             </div>
             <div>
-              <label className="block text-sm font-medium text-gray-700 mb-1">
+              <label className="block text-xs font-semibold text-slate-300 uppercase tracking-wider mb-1.5">
                 Category *
               </label>
               <select
@@ -125,7 +130,7 @@ export default function VehicleForm({ vehicle, onSubmit, onCancel }) {
                 value={formData.category}
                 onChange={handleChange}
                 required
-                className="input-field"
+                className="input-field text-sm"
               >
                 {categories.map((cat) => (
                   <option key={cat} value={cat}>
@@ -138,7 +143,7 @@ export default function VehicleForm({ vehicle, onSubmit, onCancel }) {
 
           <div className="grid grid-cols-2 gap-4">
             <div>
-              <label className="block text-sm font-medium text-gray-700 mb-1">
+              <label className="block text-xs font-semibold text-slate-300 uppercase tracking-wider mb-1.5">
                 Price (USD) *
               </label>
               <input
@@ -149,13 +154,13 @@ export default function VehicleForm({ vehicle, onSubmit, onCancel }) {
                 required
                 min="0"
                 step="100"
-                placeholder="25000"
-                className="input-field"
+                placeholder="114400"
+                className="input-field text-sm"
               />
             </div>
             <div>
-              <label className="block text-sm font-medium text-gray-700 mb-1">
-                Quantity in Stock
+              <label className="block text-xs font-semibold text-slate-300 uppercase tracking-wider mb-1.5">
+                Stock Quantity
               </label>
               <input
                 type="number"
@@ -163,13 +168,13 @@ export default function VehicleForm({ vehicle, onSubmit, onCancel }) {
                 value={formData.quantity}
                 onChange={handleChange}
                 min="0"
-                className="input-field"
+                className="input-field text-sm"
               />
             </div>
           </div>
 
           <div>
-            <label className="block text-sm font-medium text-gray-700 mb-1">
+            <label className="block text-xs font-semibold text-slate-300 uppercase tracking-wider mb-1.5">
               Image URL / Path
             </label>
             <input
@@ -177,14 +182,14 @@ export default function VehicleForm({ vehicle, onSubmit, onCancel }) {
               name="imageUrl"
               value={formData.imageUrl}
               onChange={handleChange}
-              placeholder="/images/cars/ford.jpg"
-              className="input-field"
+              placeholder="/images/cars/porsche.png"
+              className="input-field text-sm"
             />
           </div>
 
           <div>
-            <label className="block text-sm font-medium text-gray-700 mb-1">
-              Description
+            <label className="block text-xs font-semibold text-slate-300 uppercase tracking-wider mb-1.5">
+              Vehicle Description
             </label>
             <textarea
               name="description"
@@ -192,15 +197,15 @@ export default function VehicleForm({ vehicle, onSubmit, onCancel }) {
               onChange={handleChange}
               rows={3}
               maxLength={500}
-              placeholder="Brief description of the vehicle..."
-              className="input-field resize-none"
+              placeholder="Engine specs, interior trim, package details..."
+              className="input-field text-sm resize-none"
             />
           </div>
 
           {/* Action Buttons */}
-          <div className="flex space-x-3 pt-4">
+          <div className="flex space-x-3 pt-4 border-t border-purple-950/60">
             <button type="submit" className="btn-primary flex-1">
-              {vehicle ? 'Update Vehicle' : 'Add Vehicle'}
+              {vehicle ? 'Save Changes' : 'Add to Inventory'}
             </button>
             <button type="button" onClick={onCancel} className="btn-secondary flex-1">
               Cancel
