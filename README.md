@@ -64,6 +64,41 @@ Interactive modal interface allowing dealership managers to add new acquisitions
 
 ---
 
+### 6. Live Vehicle Update & Restock Confirmation
+Real-time user feedback showing instant inventory recalculation and interactive toast alerts (`Vehicle updated successfully`) upon adjusting vehicle pricing, stock quotas, or specifications.
+
+![Vehicle Updated Successfully](docs/screenshots/06-vehicle-updated-toast.png)
+
+---
+
+### 7. New Vehicle Acquisition Form
+Detailed administrative modal allowing managers to register newly acquired vehicles with make, model, model year, body category dropdown, USD pricing, stock count, custom image path, and description.
+
+![Add New Vehicle Form](docs/screenshots/07-add-new-vehicle-modal.png)
+
+---
+
+### 8. Live Vehicle Creation Notification
+Visual confirmation showing instantaneous database synchronization (`Vehicle added successfully`) and automatic table re-render when a new car is introduced to the fleet.
+
+![Vehicle Added Successfully](docs/screenshots/08-vehicle-added-toast.png)
+
+---
+
+### 9. Secure Vehicle Deletion & Inventory Pruning
+Administrative confirmation toast (`Vehicle deleted successfully`) verifying removal of sold-out or archived vehicle entries from the database.
+
+![Vehicle Deleted Successfully](docs/screenshots/09-vehicle-deleted-toast.png)
+
+---
+
+### 10. Advanced Multi-Criteria Search & Filter Engine
+Comprehensive customer search tools in action, demonstrating real-time queries filtered by vehicle model (`M4 Competition`), custom price intervals (`$0` to `$100,000`), and category criteria with instant result counts.
+
+![Search and Advanced Filters](docs/screenshots/10-search-filters-results.png)
+
+---
+
 ## ✨ Features
 
 ### User Management
