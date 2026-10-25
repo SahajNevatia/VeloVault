@@ -9,7 +9,7 @@
     <script>
       (function() {
         try {
-          const theme = localStorage.getItem('velovault_theme');
+          var theme = localStorage.getItem('velovault_theme');
           if (theme === 'dark') {
             document.documentElement.classList.add('dark');
           } else {
@@ -19,7 +19,7 @@
       })();
     </script>
   </head>
-  <body class="bg-gray-50 text-gray-900 dark:bg-[#0a0a12] dark:text-slate-100 transition-colors duration-200">
+  <body class="bg-gray-50">
     <div id="root"></div>
     <script type="module" src="/src/main.jsx"></script>
   </body>

@@ -5,13 +5,11 @@ export default {
   theme: {
     extend: {
       colors: {
-        dark: {
-          bg: '#0a0714',
-          card: '#120d22',
-          border: '#2a1a4a',
-          hover: '#1b1333',
-          input: '#160f2b',
-        },
+        'dark-bg': '#0a0714',
+        'dark-card': '#120d22',
+        'dark-border': '#2a1a4a',
+        'dark-hover': '#1b1333',
+        'dark-input': '#160f2b',
         primary: {
           50: '#eff6ff',
           100: '#dbeafe',
