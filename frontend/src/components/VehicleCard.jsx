@@ -30,12 +30,25 @@ export default function VehicleCard({ vehicle, onPurchase }) {
 
   return (
     <div className="card group">
-      {/* Vehicle Image Placeholder */}
-      <div className="relative h-48 bg-gradient-to-br from-primary-50 to-primary-100 flex items-center justify-center">
-        <Car className="h-20 w-20 text-primary-300 group-hover:text-primary-400 transition-colors" />
-        <div className="absolute top-3 right-3">
+      {/* Vehicle Image */}
+      <div className="relative h-48 bg-gray-100 flex items-center justify-center overflow-hidden">
+        {vehicle.imageUrl ? (
+          <img
+            src={vehicle.imageUrl}
+            alt={`${vehicle.year} ${vehicle.make} ${vehicle.model}`}
+            className="w-full h-full object-cover object-center group-hover:scale-105 transition-transform duration-300"
+            onError={(e) => {
+              e.currentTarget.style.display = 'none';
+              e.currentTarget.parentElement.querySelector('.fallback-icon')?.classList.remove('hidden');
+            }}
+          />
+        ) : null}
+        <div className={`fallback-icon ${vehicle.imageUrl ? 'hidden' : 'flex'} w-full h-full bg-gradient-to-br from-primary-50 to-primary-100 items-center justify-center`}>
+          <Car className="h-20 w-20 text-primary-300 group-hover:text-primary-400 transition-colors" />
+        </div>
+        <div className="absolute top-3 right-3 z-10">
           <span
-            className={`inline-flex items-center px-2.5 py-1 rounded-full text-xs font-medium ${
+            className={`inline-flex items-center px-2.5 py-1 rounded-full text-xs font-semibold shadow-sm ${
               categoryColors[vehicle.category] || 'bg-gray-100 text-gray-700'
             }`}
           >
@@ -43,9 +56,9 @@ export default function VehicleCard({ vehicle, onPurchase }) {
           </span>
         </div>
         {isOutOfStock && (
-          <div className="absolute inset-0 bg-black bg-opacity-40 flex items-center justify-center">
-            <span className="text-white font-bold text-lg bg-red-600 px-4 py-1 rounded">
-              OUT OF STOCK
+          <div className="absolute inset-0 bg-black bg-opacity-50 backdrop-blur-[1px] flex items-center justify-center z-10">
+            <span className="text-white font-bold text-sm tracking-wider uppercase bg-red-600 px-3 py-1 rounded shadow">
+              Out of Stock
             </span>
           </div>
         )}

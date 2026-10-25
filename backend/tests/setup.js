@@ -8,10 +8,22 @@ let mongoServer;
  * This ensures tests are isolated and don't affect the real database.
  */
 beforeAll(async () => {
-  mongoServer = await MongoMemoryServer.create();
+  const fs = require('fs');
+  const localMongo = 'C:\\Program Files\\MongoDB\\Server\\8.3\\bin\\mongod.exe';
+  if (fs.existsSync(localMongo) && !process.env.MONGOMS_SYSTEM_BINARY) {
+    process.env.MONGOMS_SYSTEM_BINARY = localMongo;
+  }
+  mongoServer = await MongoMemoryServer.create({
+    instance: {
+      storageEngine: 'wiredTiger',
+    },
+    binary: {
+      systemBinary: fs.existsSync(localMongo) ? localMongo : undefined,
+    },
+  });
   const mongoUri = mongoServer.getUri();
   await mongoose.connect(mongoUri);
-});
+}, 60000);
 
 /**
  * Cleans up all collections between tests for isolation.

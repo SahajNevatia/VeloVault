@@ -24,17 +24,25 @@ export function AuthProvider({ children }) {
     setLoading(false);
   }, []);
 
-  const login = async (email, password) => {
+  const login = async (email, password, requiredRole = null) => {
     try {
       const response = await authAPI.login({ email, password });
       const { user: userData, token } = response.data.data;
+
+      if (requiredRole && userData.role !== requiredRole) {
+        const errorMsg = requiredRole === 'admin'
+          ? 'Access denied. This portal is strictly for dealership administrators. Please use Customer Login.'
+          : 'Access denied for this portal.';
+        toast.error(errorMsg);
+        return { success: false, message: errorMsg };
+      }
 
       localStorage.setItem('velovault_token', token);
       localStorage.setItem('velovault_user', JSON.stringify(userData));
       setUser(userData);
 
-      toast.success('Welcome back!');
-      return { success: true };
+      toast.success(userData.role === 'admin' ? 'Welcome back, Administrator!' : 'Welcome back!');
+      return { success: true, user: userData };
     } catch (error) {
       const message = error.response?.data?.message || 'Login failed. Please try again.';
       toast.error(message);

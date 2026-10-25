@@ -7,6 +7,6 @@ module.exports = {
     '!src/config/database.js',
   ],
   testMatch: ['**/tests/**/*.test.js'],
-  setupFilesAfterSetup: [],
+  setupFilesAfterEnv: [],
   verbose: true,
 };

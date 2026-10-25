@@ -14,6 +14,7 @@ export default function VehicleForm({ vehicle, onSubmit, onCancel }) {
     price: '',
     quantity: 0,
     description: '',
+    imageUrl: '',
   });
 
   const categories = [
@@ -32,6 +33,7 @@ export default function VehicleForm({ vehicle, onSubmit, onCancel }) {
         price: vehicle.price || '',
         quantity: vehicle.quantity || 0,
         description: vehicle.description || '',
+        imageUrl: vehicle.imageUrl || '',
       });
     }
   }, [vehicle]);
@@ -164,6 +166,20 @@ export default function VehicleForm({ vehicle, onSubmit, onCancel }) {
                 className="input-field"
               />
             </div>
+          </div>
+
+          <div>
+            <label className="block text-sm font-medium text-gray-700 mb-1">
+              Image URL / Path
+            </label>
+            <input
+              type="text"
+              name="imageUrl"
+              value={formData.imageUrl}
+              onChange={handleChange}
+              placeholder="/images/cars/ford.jpg"
+              className="input-field"
+            />
           </div>
 
           <div>

@@ -3,6 +3,7 @@ import { Routes, Route, Navigate } from 'react-router-dom';
 import { Toaster } from 'react-hot-toast';
 import Navbar from './components/Navbar';
 import LoginPage from './pages/LoginPage';
+import AdminLoginPage from './pages/AdminLoginPage';
 import RegisterPage from './pages/RegisterPage';
 import DashboardPage from './pages/DashboardPage';
 import AdminPage from './pages/AdminPage';
@@ -30,7 +31,15 @@ function App() {
       <Routes>
         <Route
           path="/login"
-          element={!user ? <LoginPage /> : <Navigate to="/dashboard" />}
+          element={!user ? <LoginPage /> : <Navigate to={user.role === 'admin' ? '/admin' : '/dashboard'} />}
+        />
+        <Route
+          path="/admin-login"
+          element={!user ? <AdminLoginPage /> : <Navigate to="/admin" />}
+        />
+        <Route
+          path="/admin/login"
+          element={!user ? <AdminLoginPage /> : <Navigate to="/admin" />}
         />
         <Route
           path="/register"

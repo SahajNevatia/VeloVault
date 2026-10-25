@@ -157,9 +157,18 @@ export default function RegisterPage() {
           <p className="text-center text-gray-500 mt-6">
             Already have an account?{' '}
             <Link to="/login" className="text-primary-600 font-medium hover:text-primary-700">
-              Sign in
+              Sign in to Customer Account
             </Link>
           </p>
+
+          <div className="mt-4 pt-4 border-t border-gray-100 text-center">
+            <Link
+              to="/admin-login"
+              className="inline-flex items-center space-x-1.5 text-xs font-medium text-purple-700 hover:text-purple-800 bg-purple-50 hover:bg-purple-100 py-1.5 px-3 rounded-full transition-colors border border-purple-200"
+            >
+              <span>Dealership Staff? Access Admin Portal &rarr;</span>
+            </Link>
+          </div>
         </div>
       </div>
     </div>
