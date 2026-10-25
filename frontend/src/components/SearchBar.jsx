@@ -41,16 +41,16 @@ export default function SearchBar({ onSearch, onReset }) {
   };
 
   return (
-    <div className="bg-white dark:bg-dark-card rounded-xl shadow-sm border border-gray-100 dark:border-dark-border p-4 mb-6 transition-colors duration-200">
+    <div className="bg-white rounded-xl shadow-sm border border-gray-100 p-4 mb-6">
       <form onSubmit={handleSearch}>
         {/* Main Search Bar */}
         <div className="flex items-center space-x-3">
           <div className="relative flex-1">
-            <Search className="absolute left-3 top-1/2 transform -translate-y-1/2 h-5 w-5 text-gray-400 dark:text-purple-400/60" />
+            <Search className="absolute left-3 top-1/2 transform -translate-y-1/2 h-5 w-5 text-gray-400" />
             <input
               type="text"
               name="make"
-              placeholder="Search by make (e.g., Toyota, Porsche, Tesla)..."
+              placeholder="Search by make (e.g., Toyota, Honda)..."
               value={filters.make}
               onChange={handleChange}
               className="input-field pl-10"
@@ -63,7 +63,7 @@ export default function SearchBar({ onSearch, onReset }) {
             type="button"
             onClick={() => setShowAdvanced(!showAdvanced)}
             className={`btn-secondary flex items-center space-x-1 ${
-              showAdvanced ? 'bg-primary-50 dark:bg-accent-950 text-primary-700 dark:text-accent-300 border-primary-200 dark:border-accent-700/60' : ''
+              showAdvanced ? 'bg-primary-50 text-primary-700' : ''
             }`}
           >
             <SlidersHorizontal className="h-4 w-4" />
@@ -73,7 +73,7 @@ export default function SearchBar({ onSearch, onReset }) {
             <button
               type="button"
               onClick={handleReset}
-              className="flex items-center space-x-1 text-gray-500 dark:text-purple-300 hover:text-red-500 dark:hover:text-red-400 transition-colors"
+              className="flex items-center space-x-1 text-gray-500 hover:text-red-500 transition-colors"
             >
               <X className="h-4 w-4" />
               <span className="text-sm">Clear</span>
@@ -83,22 +83,22 @@ export default function SearchBar({ onSearch, onReset }) {
 
         {/* Advanced Filters */}
         {showAdvanced && (
-          <div className="mt-4 pt-4 border-t border-gray-100 dark:border-dark-border grid grid-cols-1 md:grid-cols-4 gap-4">
+          <div className="mt-4 pt-4 border-t border-gray-100 grid grid-cols-1 md:grid-cols-4 gap-4">
             <div>
-              <label className="block text-sm font-medium text-gray-700 dark:text-purple-200 mb-1">
+              <label className="block text-sm font-medium text-gray-700 mb-1">
                 Model
               </label>
               <input
                 type="text"
                 name="model"
-                placeholder="e.g., Camry, 911"
+                placeholder="e.g., Camry"
                 value={filters.model}
                 onChange={handleChange}
                 className="input-field"
               />
             </div>
             <div>
-              <label className="block text-sm font-medium text-gray-700 dark:text-purple-200 mb-1">
+              <label className="block text-sm font-medium text-gray-700 mb-1">
                 Category
               </label>
               <select
@@ -116,7 +116,7 @@ export default function SearchBar({ onSearch, onReset }) {
               </select>
             </div>
             <div>
-              <label className="block text-sm font-medium text-gray-700 dark:text-purple-200 mb-1">
+              <label className="block text-sm font-medium text-gray-700 mb-1">
                 Min Price
               </label>
               <input
@@ -129,13 +129,13 @@ export default function SearchBar({ onSearch, onReset }) {
               />
             </div>
             <div>
-              <label className="block text-sm font-medium text-gray-700 dark:text-purple-200 mb-1">
+              <label className="block text-sm font-medium text-gray-700 mb-1">
                 Max Price
               </label>
               <input
                 type="number"
                 name="maxPrice"
-                placeholder="$150,000"
+                placeholder="$100,000"
                 value={filters.maxPrice}
                 onChange={handleChange}
                 className="input-field"

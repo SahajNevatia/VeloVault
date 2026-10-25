@@ -4,17 +4,7 @@
 
 @layer base {
   body {
-    font-family: 'Inter', system-ui, -apple-system, sans-serif;
-    -webkit-font-smoothing: antialiased;
-    background-color: #f9fafb;
-    color: #111827;
-    transition: background-color 0.2s ease, color 0.2s ease;
-  }
-
-  html.dark body,
-  .dark body {
-    background-color: #0a0714;
-    color: #f3e8ff;
+    @apply font-sans antialiased text-gray-900;
   }
 }
 
@@ -23,25 +13,8 @@
     @apply bg-primary-600 hover:bg-primary-700 text-white font-medium py-2.5 px-5 rounded-lg transition-all duration-200 shadow-sm hover:shadow-md focus:outline-none focus:ring-2 focus:ring-primary-500 focus:ring-offset-2 disabled:opacity-50 disabled:cursor-not-allowed;
   }
 
-  .dark .btn-primary {
-    background-color: #9333ea;
-    box-shadow: 0 4px 14px 0 rgba(147, 51, 234, 0.35);
-  }
-  .dark .btn-primary:hover:not(:disabled) {
-    background-color: #7e22ce;
-  }
-
   .btn-secondary {
     @apply bg-gray-100 hover:bg-gray-200 text-gray-700 font-medium py-2.5 px-5 rounded-lg transition-all duration-200 focus:outline-none focus:ring-2 focus:ring-gray-400 focus:ring-offset-2;
-  }
-
-  .dark .btn-secondary {
-    background-color: #160f2b;
-    color: #e9d5ff;
-    border: 1px solid #2a1a4a;
-  }
-  .dark .btn-secondary:hover {
-    background-color: #231742;
   }
 
   .btn-danger {
@@ -52,29 +25,7 @@
     @apply w-full px-4 py-2.5 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-primary-500 focus:border-primary-500 transition-all duration-200 bg-white;
   }
 
-  .dark .input-field {
-    background-color: #120d22;
-    border-color: #2a1a4a;
-    color: #ffffff;
-  }
-  .dark .input-field:focus {
-    border-color: #a855f7;
-    box-shadow: 0 0 0 2px rgba(168, 85, 247, 0.35);
-  }
-  .dark .input-field::placeholder {
-    color: #7e6c9c;
-  }
-
   .card {
-    @apply bg-white rounded-xl shadow-sm border border-gray-100 overflow-hidden hover:shadow-md transition-all duration-300;
-  }
-
-  .dark .card {
-    background-color: #120d22;
-    border-color: #2a1a4a;
-  }
-  .dark .card:hover {
-    border-color: rgba(168, 85, 247, 0.45);
-    box-shadow: 0 8px 25px -4px rgba(147, 51, 234, 0.25);
+    @apply bg-white rounded-xl shadow-sm border border-gray-100 overflow-hidden hover:shadow-md transition-shadow duration-300;
   }
 }

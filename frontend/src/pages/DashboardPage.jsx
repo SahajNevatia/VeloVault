@@ -78,9 +78,9 @@ export default function DashboardPage() {
     <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8">
       {/* Page Header */}
       <div className="mb-6">
-        <h1 className="text-3xl font-extrabold text-gray-900 dark:text-white">Vehicle Inventory</h1>
-        <p className="text-gray-500 dark:text-purple-300/70 mt-1">
-          Browse our certified collection of premium vehicles
+        <h1 className="text-3xl font-bold text-gray-900">Vehicle Inventory</h1>
+        <p className="text-gray-500 mt-1">
+          Browse our collection of premium vehicles
         </p>
       </div>
 
@@ -90,7 +90,7 @@ export default function DashboardPage() {
       {/* Results Info */}
       {!loading && (
         <div className="flex items-center justify-between mb-4">
-          <p className="text-sm text-gray-500 dark:text-purple-300/70">
+          <p className="text-sm text-gray-500">
             {isSearchMode
               ? `Found ${vehicles.length} vehicle(s)`
               : `Showing ${vehicles.length} of ${pagination?.totalItems || 0} vehicles`}
@@ -101,14 +101,14 @@ export default function DashboardPage() {
       {/* Loading State */}
       {loading ? (
         <div className="flex items-center justify-center py-20">
-          <Loader2 className="h-8 w-8 animate-spin text-primary-600 dark:text-accent-500" />
+          <Loader2 className="h-8 w-8 animate-spin text-primary-600" />
         </div>
       ) : vehicles.length === 0 ? (
         /* Empty State */
         <div className="text-center py-20">
-          <Car className="h-16 w-16 text-gray-300 dark:text-purple-900/60 mx-auto mb-4" />
-          <h3 className="text-lg font-medium text-gray-900 dark:text-white">No vehicles found</h3>
-          <p className="text-gray-500 dark:text-purple-300/70 mt-1">
+          <Car className="h-16 w-16 text-gray-300 mx-auto mb-4" />
+          <h3 className="text-lg font-medium text-gray-900">No vehicles found</h3>
+          <p className="text-gray-500 mt-1">
             {isSearchMode
               ? 'Try adjusting your search filters'
               : 'No vehicles available at the moment'}
@@ -138,7 +138,7 @@ export default function DashboardPage() {
             <ChevronLeft className="h-4 w-4" />
             <span>Previous</span>
           </button>
-          <span className="text-sm text-gray-700 dark:text-purple-200">
+          <span className="text-sm text-gray-700">
             Page {pagination.currentPage} of {pagination.totalPages}
           </span>
           <button

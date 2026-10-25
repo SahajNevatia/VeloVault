@@ -52,16 +52,16 @@ export default function VehicleForm({ vehicle, onSubmit, onCancel }) {
   };
 
   return (
-    <div className="fixed inset-0 bg-black/70 backdrop-blur-sm flex items-center justify-center z-50 p-4">
-      <div className="bg-white dark:bg-dark-card border border-transparent dark:border-dark-border rounded-xl shadow-2xl max-w-lg w-full max-h-[90vh] overflow-y-auto transition-colors duration-200">
+    <div className="fixed inset-0 bg-black bg-opacity-50 flex items-center justify-center z-50 p-4">
+      <div className="bg-white rounded-xl shadow-xl max-w-lg w-full max-h-[90vh] overflow-y-auto">
         {/* Header */}
-        <div className="flex items-center justify-between p-6 border-b border-gray-100 dark:border-dark-border">
-          <h2 className="text-xl font-bold text-gray-900 dark:text-white">
+        <div className="flex items-center justify-between p-6 border-b border-gray-100">
+          <h2 className="text-xl font-bold text-gray-900">
             {vehicle ? 'Edit Vehicle' : 'Add New Vehicle'}
           </h2>
           <button
             onClick={onCancel}
-            className="text-gray-400 hover:text-gray-600 dark:hover:text-purple-300 transition-colors"
+            className="text-gray-400 hover:text-gray-600 transition-colors"
           >
             <X className="h-5 w-5" />
           </button>
@@ -71,7 +71,7 @@ export default function VehicleForm({ vehicle, onSubmit, onCancel }) {
         <form onSubmit={handleSubmit} className="p-6 space-y-4">
           <div className="grid grid-cols-2 gap-4">
             <div>
-              <label className="block text-sm font-medium text-gray-700 dark:text-purple-200 mb-1">
+              <label className="block text-sm font-medium text-gray-700 mb-1">
                 Make *
               </label>
               <input
@@ -85,7 +85,7 @@ export default function VehicleForm({ vehicle, onSubmit, onCancel }) {
               />
             </div>
             <div>
-              <label className="block text-sm font-medium text-gray-700 dark:text-purple-200 mb-1">
+              <label className="block text-sm font-medium text-gray-700 mb-1">
                 Model *
               </label>
               <input
@@ -102,7 +102,7 @@ export default function VehicleForm({ vehicle, onSubmit, onCancel }) {
 
           <div className="grid grid-cols-2 gap-4">
             <div>
-              <label className="block text-sm font-medium text-gray-700 dark:text-purple-200 mb-1">
+              <label className="block text-sm font-medium text-gray-700 mb-1">
                 Year *
               </label>
               <input
@@ -117,7 +117,7 @@ export default function VehicleForm({ vehicle, onSubmit, onCancel }) {
               />
             </div>
             <div>
-              <label className="block text-sm font-medium text-gray-700 dark:text-purple-200 mb-1">
+              <label className="block text-sm font-medium text-gray-700 mb-1">
                 Category *
               </label>
               <select
@@ -138,7 +138,7 @@ export default function VehicleForm({ vehicle, onSubmit, onCancel }) {
 
           <div className="grid grid-cols-2 gap-4">
             <div>
-              <label className="block text-sm font-medium text-gray-700 dark:text-purple-200 mb-1">
+              <label className="block text-sm font-medium text-gray-700 mb-1">
                 Price (USD) *
               </label>
               <input
@@ -154,7 +154,7 @@ export default function VehicleForm({ vehicle, onSubmit, onCancel }) {
               />
             </div>
             <div>
-              <label className="block text-sm font-medium text-gray-700 dark:text-purple-200 mb-1">
+              <label className="block text-sm font-medium text-gray-700 mb-1">
                 Quantity in Stock
               </label>
               <input
@@ -169,7 +169,7 @@ export default function VehicleForm({ vehicle, onSubmit, onCancel }) {
           </div>
 
           <div>
-            <label className="block text-sm font-medium text-gray-700 dark:text-purple-200 mb-1">
+            <label className="block text-sm font-medium text-gray-700 mb-1">
               Image URL / Path
             </label>
             <input
@@ -183,7 +183,7 @@ export default function VehicleForm({ vehicle, onSubmit, onCancel }) {
           </div>
 
           <div>
-            <label className="block text-sm font-medium text-gray-700 dark:text-purple-200 mb-1">
+            <label className="block text-sm font-medium text-gray-700 mb-1">
               Description
             </label>
             <textarea
